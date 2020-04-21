@@ -1,5 +1,8 @@
 # Scaffold a MONOREPO with this Node CLI
 
+![npm (scoped)](https://img.shields.io/npm/v/@pak11273/monorepo)
+https://img.shields.io/github/license/pak11273/monorepo
+
 ## Stack includes React, Typescript, ApolloGraphQL, Lerna, Yarn Workspaces, PostgresSQL
 
 ## Requirements
