@@ -13,7 +13,9 @@ const log = console.log
 clear()
 
 log(chalk.yellow(figlet.textSync("Monorepo", { horizontalLayout: "full" })))
-log(chalk.bgYellow("Please ensure that you are inside an empty directory!"))
+log(
+  chalk.black.bgYellow("Please ensure that you are inside an empty directory!")
+)
 
 // Check if this is a new directory
 function isDirEmpty(dirname) {
