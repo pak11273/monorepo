@@ -13,7 +13,8 @@
 ## Installation Steps (if applicable)
 
 1. Install the module globally with `npm install @pak11273/monorepo -g` from within the project directory
-2. Run `repo <repo-name> <longer repo description>`
+2. Create a directory `mkdir <your monorepo name> && cd <your monorepo name>`
+3. Run `repo <your monorepo name> <description>`
 
 ## License
 

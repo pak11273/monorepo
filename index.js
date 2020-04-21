@@ -7,17 +7,45 @@ const figlet = require("figlet")
 const files = require("./lib/files")
 const github = require("./lib/github")
 const repo = require("./lib/repo")
+const fs = require("fs")
+const log = console.log
 
 clear()
 
-console.log(
-  chalk.yellow(figlet.textSync("Monorepo", { horizontalLayout: "full" }))
-)
+log(chalk.yellow(figlet.textSync("Monorepo", { horizontalLayout: "full" })))
+log(chalk.bgGreen("Please ensure that you are inside an empty directory!"))
+
+// Check if this is a new directory
+// fs.readdir(".", function (err, files) {
+//   if (err) {
+//     // some sort of error
+//     log(chalk.red("ERROR: ", err))
+//   } else {
+//     if (!files.length) {
+//       // directory appears to be empty
+//       log(
+//         chalk.red(
+//           "There are files inside this directory! Clear all files are create a new directory."
+//         )
+//       )
+//       process.exit()
+//     }
+//   }
+// })
+function isDirEmpty(dirname) {
+  return fs.promises.readdir(dirname).then((files) => {
+    return files.length === 0
+  })
+}
 
 // GIT REPO
 
 if (files.directoryExists(".git")) {
-  console.log(chalk.red("Already a Git repository!"))
+  console.log(
+    chalk.red(
+      "A Git repository already exists! Please rm -rf .git and start over"
+    )
+  )
   process.exit()
 }
 
@@ -74,4 +102,15 @@ const run = async () => {
   }
 }
 
-run()
+isDirEmpty(".").then((val) => {
+  if (!val) {
+    log(
+      chalk.red(
+        "There are files inside this directory! Delete all files or create a new directory."
+      )
+    )
+    process.exit()
+  } else {
+    run()
+  }
+})
