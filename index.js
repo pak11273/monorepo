@@ -13,25 +13,9 @@ const log = console.log
 clear()
 
 log(chalk.yellow(figlet.textSync("Monorepo", { horizontalLayout: "full" })))
-log(chalk.bgGreen("Please ensure that you are inside an empty directory!"))
+log(chalk.bgYellow("Please ensure that you are inside an empty directory!"))
 
 // Check if this is a new directory
-// fs.readdir(".", function (err, files) {
-//   if (err) {
-//     // some sort of error
-//     log(chalk.red("ERROR: ", err))
-//   } else {
-//     if (!files.length) {
-//       // directory appears to be empty
-//       log(
-//         chalk.red(
-//           "There are files inside this directory! Clear all files are create a new directory."
-//         )
-//       )
-//       process.exit()
-//     }
-//   }
-// })
 function isDirEmpty(dirname) {
   return fs.promises.readdir(dirname).then((files) => {
     return files.length === 0
