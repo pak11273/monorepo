@@ -4,10 +4,12 @@ const chalk = require("chalk")
 const clear = require("clear")
 const figlet = require("figlet")
 
+const VCFunc = require("./lib/version-control")
 const files = require("./lib/files")
 const repo = require("./lib/repo")
 const fs = require("fs")
 const log = console.log
+const VersionControl = new VCFunc()
 
 clear()
 
@@ -44,6 +46,9 @@ isDirEmpty(".").then(async (val) => {
     )
     process.exit()
   } else {
-    ;(await github()).run()
+    const VC = await VersionControl.run()
+    if (VC.version === "Github") {
+      ;(await github()).run()
+    }
   }
 })
