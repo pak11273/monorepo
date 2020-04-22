@@ -25,8 +25,7 @@ function isDirEmpty(dirname) {
   })
 }
 
-// GIT REPO
-
+// Version control
 if (files.directoryExists(".git")) {
   console.log(
     chalk.red(
@@ -36,9 +35,10 @@ if (files.directoryExists(".git")) {
   process.exit()
 }
 
-isDirEmpty(".").then(async (val) => {
+const start = async function () {
   const github = require("./lib/github")
-  if (!val) {
+  const empty = await isDirEmpty(".")
+  if (!empty) {
     log(
       chalk.red(
         "There are files inside this directory! Delete all files or create a new directory."
@@ -48,7 +48,13 @@ isDirEmpty(".").then(async (val) => {
   } else {
     const VC = await VersionControl.run()
     if (VC.version === "Github") {
-      ;(await github()).run()
+      const git = (await github()).run()
+      console.log("Git: ", git)
+    }
+    if (VC.version === "Bitbucket") {
+      const bit = (await bitbucket()).run()
     }
   }
-})
+}
+
+start()
