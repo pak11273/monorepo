@@ -31,13 +31,7 @@ const start = async function () {
   } else {
     bit = (await bitbucket()).run()
   }
-  // lerna
-  let ver = await git
-  if (ver === "git") {
-    lerna.setupLerna()
-  } else {
-    console.log("implement bit strategy")
-  }
 }
 
-start().catch((err) => log(chalk.red(err)))
+start()
+// start().catch((err) => log(chalk.red(err)))
