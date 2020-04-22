@@ -47,13 +47,14 @@ const start = async function () {
     process.exit()
   } else {
     const VC = await VersionControl.run()
+    let git
     if (VC.version === "Github") {
-      const git = (await github()).run()
-      console.log("Git: ", git)
+      git = (await github()).run()
     }
     if (VC.version === "Bitbucket") {
       const bit = (await bitbucket()).run()
     }
+    console.log("Git: ", await git)
   }
 }
 
