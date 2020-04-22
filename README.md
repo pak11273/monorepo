@@ -6,6 +6,8 @@
 
 ## Requirements
 
+- [Lerna](https://lerna.js.org/)
+- [Yarn](https://classic.yarnpkg.com/en/docs/install#windows-stable)
 - [Node.js](http://nodejs.org/)
 - [Git](https://git-scm.com/)
 - [GitHub account](https://github.com/)
