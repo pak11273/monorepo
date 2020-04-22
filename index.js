@@ -4,12 +4,13 @@ const chalk = require("chalk")
 const clear = require("clear")
 const figlet = require("figlet")
 
-const VCFunc = require("./lib/version-control")
-const files = require("./lib/files")
-const repo = require("./lib/repo")
+const VCFunc = require("./lib/utilities/version-control")
+const files = require("./lib/utilities/files")
+const repo = require("./lib/github/repo")
 const fs = require("fs")
 const log = console.log
 const VersionControl = new VCFunc()
+const lerna = require("./lib/lerna/lerna")
 
 clear()
 
@@ -36,7 +37,7 @@ if (files.directoryExists(".git")) {
 }
 
 const start = async function () {
-  const github = require("./lib/github")
+  const github = require("./lib/github/github")
   const empty = await isDirEmpty(".")
   if (!empty) {
     log(
@@ -46,6 +47,8 @@ const start = async function () {
     )
     process.exit()
   } else {
+    // npm
+    // version control
     const VC = await VersionControl.run()
     let git, bit
     if (VC.version === "Github") {
@@ -53,7 +56,14 @@ const start = async function () {
     } else {
       bit = (await bitbucket()).run()
     }
-    // Add lerna
+    // lerna
+    // TODO: When implementing bitbucket, the function may need to return "bit" on success
+    let ver = await git
+    if (ver === "git") {
+      lerna.setupLerna()
+    } else {
+      console.log("implement bit strategy")
+    }
   }
 }
 
