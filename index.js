@@ -47,15 +47,14 @@ const start = async function () {
     process.exit()
   } else {
     const VC = await VersionControl.run()
-    let git
+    let git, bit
     if (VC.version === "Github") {
       git = (await github()).run()
+    } else {
+      bit = (await bitbucket()).run()
     }
-    if (VC.version === "Bitbucket") {
-      const bit = (await bitbucket()).run()
-    }
-    console.log("Git: ", await git)
+    // Add lerna
   }
 }
 
-start()
+start().catch((err) => log(chalk.red(err)))
