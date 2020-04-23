@@ -5,12 +5,10 @@ const clear = require("clear")
 const figlet = require("figlet")
 
 const VCFunc = require("./lib/utilities/version-control")
-const files = require("./lib/utilities/files")
-const repo = require("./lib/github/repo")
-const fs = require("fs")
 const log = console.log
 const VersionControl = new VCFunc()
 const init = require("./lib/init")
+const server = require("./lib/server")
 
 clear()
 
@@ -21,9 +19,13 @@ log(
 
 const start = async function () {
   // initialize project
-  let done = await init.run()
-  const github = require("./lib/github/github")
+  let initialAnswers = await init.run()
+  // setting up the server
+  if (initialAnswers.server === "yes") {
+    let serverAnswers = await server.run()
+  }
   // version control
+  const github = require("./lib/github/github")
   const VC = await VersionControl.run()
   let git, bit
   if (VC.version === "Github") {
@@ -34,4 +36,3 @@ const start = async function () {
 }
 
 start()
-// start().catch((err) => log(chalk.red(err)))
