@@ -6,11 +6,13 @@
 
 ## Requirements
 
-- [Lerna](https://lerna.js.org/)
-- [Yarn](https://classic.yarnpkg.com/en/docs/install#windows-stable)
-- [Node.js](http://nodejs.org/)
-- [Git](https://git-scm.com/)
-- [GitHub account](https://github.com/)
+- [Lerna v3.18.4](https://lerna.js.org/)
+- [Yarn v1.19.1+](https://classic.yarnpkg.com/en/docs/install#windows-stable)
+- [Node v12.4.0+](http://nodejs.org/)
+- [Git v2.11.0+](https://git-scm.com/)
+- [GitHub account](https://github.com/) OR [Bitbuck accout](https://bitbucket.org)
+
+\*May or may not work with lower versions
 
 ## Installation Steps (if applicable)
 
