@@ -15,9 +15,6 @@ const db = require("./lib/database")
 clear()
 
 log(chalk.yellow(figlet.textSync("Monorepo", { horizontalLayout: "full" })))
-log(
-  chalk.black.bgYellow("Please ensure that you are inside an empty directory!")
-)
 
 const start = async function () {
   // initialize project
