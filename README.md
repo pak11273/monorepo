@@ -8,7 +8,7 @@
 
 - servers: "express"
 - templating engines: "hbs", "ejs", "pug"
-- clients: "react", "create-react-app"
+- clients: "react", "create-react-app 3.3.1"
 
 ### Features
 
