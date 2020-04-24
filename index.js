@@ -9,6 +9,7 @@ const log = console.log
 const VersionControl = new VCFunc()
 const init = require("./lib/init")
 const server = require("./lib/server")
+const db = require("./lib/database")
 
 clear()
 
@@ -22,10 +23,13 @@ const start = async function () {
   let initialAnswers = await init.run()
   // setting up the server
   if (initialAnswers.server === "yes") {
-    let serverAnswers = await server.run(initialAnswers)
+    var serverAnswers = await server.run(initialAnswers)
   }
-  // version control
+  if (initialAnswers.db === "yes") {
+    let dbAnswers = await db.run(initialAnswers)
+  }
 
+  // version control
   // const github = require("./lib/github/github")
   // const VC = await VersionControl.run()
   // let git, bit
