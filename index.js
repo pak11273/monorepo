@@ -21,9 +21,7 @@ const start = async function () {
   // initialize project
   let initialAnswers = await init.run()
   // setting up the server
-  if (initialAnswers.server === "yes") {
-    let serverAnswers = await server.run()
-  }
+  let serverAnswers = await server.run()
   // version control
   const github = require("./lib/github/github")
   const VC = await VersionControl.run()
