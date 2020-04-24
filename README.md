@@ -46,6 +46,7 @@
 - Add gatsby option for web
 - Add nextJS option for web
 - Add react-native option for mobile
+- Add create-react-native-app option for mobile
 - Add apollo option for graphql
 - Add typeorm option for orms
 - Add basic user authentication for express
