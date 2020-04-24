@@ -8,11 +8,13 @@
 
 - servers: "express"
 - templating engines: "hbs", "ejs", "pug"
+- clients: "react", "create-react-app"
 
 ### Features
 
 - Custom options for the stack you want
 - Automatic github repository setup
+- Adds typescript support to client
 
 ## Requirements
 
@@ -33,11 +35,11 @@
 
 ## RoadMap
 
-- Add react option for client
+- ~~Add react option for client~~
 - Add a basic setup for react clients only
 - Add webpack option for bundler
 - Add rollup option for bundler
-- Add create-react-app option for client
+- ~~Add create-react-app option for client~~
 - Add nextJS option for client
 - Add gatsby option for client
 - Add create-react-app option for web
