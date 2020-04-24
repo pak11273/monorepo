@@ -20,9 +20,10 @@ log(
 const start = async function () {
   // initialize project
   let initialAnswers = await init.run()
-  console.log("init: ", initialAnswers)
   // setting up the server
-  let serverAnswers = await server.run()
+  if (initialAnswers.server === "yes") {
+    let serverAnswers = await server.run(initialAnswers)
+  }
   // version control
 
   // const github = require("./lib/github/github")
