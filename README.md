@@ -2,12 +2,17 @@
 
 ![npm (scoped)](https://img.shields.io/npm/v/@pak11273/monorepo)
 
-## Stack includes React, Typescript, ApolloGraphQL, Lerna, Yarn Workspaces, PostgresSQL
+## Build a monorepo with Lerna, Yarn Workspaces, and options for clients, servers, website, mobile
 
 ### Current Options:
 
 - servers: "express"
 - templating engines: "hbs", "ejs", "pug"
+
+### Features
+
+- Custom options for the stack you want
+- Automatic github repository setup
 
 ## Requirements
 
