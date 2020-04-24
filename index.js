@@ -20,6 +20,7 @@ log(
 const start = async function () {
   // initialize project
   let initialAnswers = await init.run()
+  console.log("init: ", initialAnswers)
   // setting up the server
   let serverAnswers = await server.run()
   // version control
