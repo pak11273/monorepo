@@ -12,6 +12,8 @@ const server = require("./lib/server")
 const client = require("./lib/client")
 const admin = require("./lib/admin")
 const db = require("./lib/database")
+const mobile = require("./lib/mobile")
+const web = require("./lib/web")
 
 clear()
 
@@ -31,6 +33,14 @@ const start = async function () {
   // setting up the admin
   if (initialAnswers.admin === "yes") {
     let adminAnswers = await admin.run(initialAnswers)
+  }
+  // setting up the website
+  if (initialAnswers.web === "yes") {
+    let webAnswers = await web.run(initialAnswers)
+  }
+  // setting up the mobile
+  if (initialAnswers.web === "yes") {
+    let mobileAnswers = await mobile.run(initialAnswers)
   }
   // setting up the db
   if (initialAnswers.db === "yes") {
