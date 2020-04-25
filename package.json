@@ -1,6 +1,6 @@
 {
   "name": "@pak11273/monorepo",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "description": "CLI for monorepos",
   "main": "index.js",
   "bin": {
