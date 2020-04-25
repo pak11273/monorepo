@@ -10,6 +10,7 @@ const VersionControl = new VCFunc()
 const init = require("./lib/init")
 const server = require("./lib/server")
 const client = require("./lib/client")
+const admin = require("./lib/admin")
 const db = require("./lib/database")
 
 clear()
@@ -26,6 +27,10 @@ const start = async function () {
   // setting up the client
   if (initialAnswers.client === "yes") {
     let clientAnswers = await client.run(initialAnswers)
+  }
+  // setting up the admin
+  if (initialAnswers.admin === "yes") {
+    let adminAnswers = await admin.run(initialAnswers)
   }
   // setting up the db
   if (initialAnswers.db === "yes") {
