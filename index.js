@@ -38,14 +38,14 @@ const start = async function () {
   }
 
   // version control
-  // const github = require("./lib/github/github")
-  // const VC = await VersionControl.run()
-  // let git, bit
-  // if (VC.version === "Github") {
-  //   git = (await github()).run()
-  // } else {
-  //   bit = (await bitbucket()).run()
-  // }
+  const github = require("./lib/github/github")
+  const VC = await VersionControl.run()
+  let git, bit
+  if (VC.version === "Github") {
+    git = (await github()).run()
+  } else {
+    bit = (await bitbucket()).run()
+  }
 }
 
 start()
