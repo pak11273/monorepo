@@ -32,23 +32,24 @@
 2. Create a directory `mkdir <your monorepo name> && cd <your monorepo name>`
 3. Run `repo <your monorepo name> <description>`
 4. Follow the instructions
+5. cd into the root folder after the setup is completed and run `yarn bootstrap`
+6. cd into packages/client and run `yarn start` to test react clients
 
 ## RoadMap
 
 - ~~Add react option for client~~
-- Add a basic setup for react clients only
-- Add webpack option for bundler
-- Add rollup option for bundler
+- ~~Add a basic setup for react clients only~~
+- ~~Add webpack option for bundler~~
 - ~~Add create-react-app option for client~~
-- Add nextJS option for client
-- Add gatsby option for client
-- Add create-react-app option for web
+- Add typeorm option for orms
+- Add apollo option for graphql
 - Add gatsby option for web
 - Add nextJS option for web
+- Add rollup option for bundler
+- Add nextJS option for client
+- Add gatsby option for client
 - Add react-native option for mobile
 - Add create-react-native-app option for mobile
-- Add apollo option for graphql
-- Add typeorm option for orms
 - Add basic user authentication for express
 - Add basic user authentication for graphql
 - Add circleci option for ci
