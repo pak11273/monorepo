@@ -10,6 +10,7 @@ const VersionControl = new VCFunc()
 const init = require("./lib/init")
 const server = require("./lib/server")
 const client = require("./lib/client")
+const bundler = require("./lib/bundler")
 const admin = require("./lib/admin")
 const db = require("./lib/database")
 const mobile = require("./lib/mobile")
@@ -28,7 +29,11 @@ const start = async function () {
   }
   // setting up the client
   if (initialAnswers.client === "yes") {
-    let clientAnswers = await client.run(initialAnswers)
+    var clientAnswers = await client.run(initialAnswers)
+  }
+  // setting up the bundler
+  if (clientAnswers.client === "react") {
+    let bundlerAnswers = await bundler.run(initialAnswers)
   }
   // setting up the admin
   if (initialAnswers.admin === "yes") {
