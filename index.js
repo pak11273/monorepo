@@ -51,10 +51,10 @@ const start = async function () {
   if (initialAnswers.db === "yes") {
     let dbAnswers = await db.run(initialAnswers)
   }
-  // setting up the db
-  if (initialAnswers.typescript === "yes") {
-    let typescriptAnswers = await db.run(initialAnswers)
-  }
+  // TODO: setting up all packages with typescript
+  // if (initialAnswers.typescript === "yes") {
+  //   let typescriptAnswers = await typescript.run(initialAnswers)
+  // }
 
   // version control
   const github = require("./lib/github/github")
