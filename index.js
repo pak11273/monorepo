@@ -51,6 +51,10 @@ const start = async function () {
   if (initialAnswers.db === "yes") {
     let dbAnswers = await db.run(initialAnswers)
   }
+  // setting up the db
+  if (initialAnswers.typescript === "yes") {
+    let typescriptAnswers = await db.run(initialAnswers)
+  }
 
   // version control
   const github = require("./lib/github/github")
@@ -59,7 +63,7 @@ const start = async function () {
   if (VC.version === "Github") {
     git = (await github()).run()
   } else {
-    bit = (await bitbucket()).run()
+    // bit = (await bitbucket()).run()
   }
 }
 
