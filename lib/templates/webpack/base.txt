@@ -1,16 +1,11 @@
-// stubs
-const path = { resolve: (a, b) => null, join: () => null }
-const MiniCssExtractPlugin = function () {
-  loader: null
-}
-const HtmlWebpackPlugin = function () {
-  null
-}
-const BundleAnalyzerPlugin = function () {
-  null
-}
+const webpack = require("webpack")
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
-module.exports = {
+const config = {
   entry: ["react-hot-loader/patch", "./src/index.js"],
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -81,4 +76,13 @@ module.exports = {
       },
     },
   },
+}
+
+module.exports = (env, argv) => {
+  if (argv.hot) {
+    // Cannot use 'contenthash' when hot reloading is enabled.
+    config.output.filename = "[name].[hash].js"
+  }
+
+  return config
 }
