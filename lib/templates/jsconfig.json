@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es6",
+    "jsx": "react",
+    "paths": {
+      "@scope/admin/*": ["./admin/*"],
+      "@scope/client/*": ["./client/*"],
+      "@scope/db/*": ["./db/*"],
+      "@scope/mobile/*": ["./mobile/*"],
+      "@scope/shared/*": ["./shared/*"],
+      "@scope/web/*": ["./web/*"]
+    }
+  },
+  "include": ["**/src/**/*.js"],
+  "exclude": [
+    "**/node_modules/*",
+    "**/dist/*",
+    "**/coverage/*",
+    "**/demo/*",
+    "**/lib/*",
+    "**/public/*"
+  ]
+}
