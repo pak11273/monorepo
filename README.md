@@ -42,6 +42,7 @@
 - ~~Add a basic setup for react clients only~~
 - ~~Add webpack option for bundler~~
 - ~~Add create-react-app option for client~~
+- Add a documentation website
 - Add typeorm option for orms
 - Add apollo option for graphql
 - Add gatsby option for web
