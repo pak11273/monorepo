@@ -12,9 +12,10 @@
 
 ### Features
 
-- Custom options for the stack you want
+- Custom options for a javascript-based fullstack repo
 - Automatic github repository setup
-- Adds typescript support to client
+- Adds a typescript option support for your client module
+- Webpack dev server w/hot reloading for react apps
 
 ## Requirements
 
