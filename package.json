@@ -29,7 +29,6 @@
     "inquirer": "^7.0.3",
     "lodash": "^4.17.15",
     "minimist": "^1.2.0",
-    "package-merge": "^0.1.2",
     "simple-git": "^1.129.0"
   },
   "devDependencies": {
