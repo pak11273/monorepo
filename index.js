@@ -8,13 +8,13 @@ const VCFunc = require("./lib/utilities/version-control")
 const log = console.log
 const VersionControl = new VCFunc()
 const init = require("./lib/init")
-const server = require("./lib/server")
-const client = require("./lib/client")
-const bundler = require("./lib/bundler")
-const admin = require("./lib/admin")
-const db = require("./lib/database")
-const mobile = require("./lib/mobile")
-const web = require("./lib/web")
+const serverlib = require("./lib/server")
+const clientlib = require("./lib/client")
+const bundlerlib = require("./lib/bundler")
+const adminlib = require("./lib/admin")
+const dblib = require("./lib/database")
+const mobilelib = require("./lib/mobile")
+const weblib = require("./lib/web")
 
 clear()
 
@@ -23,33 +23,35 @@ log(chalk.yellow(figlet.textSync("Monorepo", { horizontalLayout: "full" })))
 const start = async function () {
   // initialize project
   let initialAnswers = await init.run()
+  const { server, client, admin, web, db } = initialAnswers
+
   // setting up the server
-  if (initialAnswers.server === "yes") {
-    var serverAnswers = await server.run(initialAnswers)
+  if (server === "yes") {
+    var serverAnswers = await serverlib.run(initialAnswers)
   }
   // setting up the client
-  if (initialAnswers.client === "yes") {
-    var clientAnswers = await client.run(initialAnswers)
+  if (client === "yes") {
+    var clientAnswers = await clientlib.run(initialAnswers)
   }
   // setting up the bundler
   if (clientAnswers.client === "react") {
-    let bundlerAnswers = await bundler.run(initialAnswers)
+    let bundlerAnswers = await bundlerlib.run(initialAnswers)
   }
   // setting up the admin
-  if (initialAnswers.admin === "yes") {
-    let adminAnswers = await admin.run(initialAnswers)
+  if (admin === "yes") {
+    let adminAnswers = await adminlib.run(initialAnswers)
   }
   // setting up the website
-  if (initialAnswers.web === "yes") {
-    let webAnswers = await web.run(initialAnswers)
+  if (web === "yes") {
+    let webAnswers = await weblib.run(initialAnswers)
   }
   // setting up the mobile
-  if (initialAnswers.web === "yes") {
-    let mobileAnswers = await mobile.run(initialAnswers)
+  if (web === "yes") {
+    let mobileAnswers = await mobilelib.run(initialAnswers)
   }
   // setting up the db
-  if (initialAnswers.db === "yes") {
-    let dbAnswers = await db.run(initialAnswers)
+  if (db === "yes") {
+    let dbAnswers = await dblib.run(initialAnswers)
   }
   // TODO: setting up all packages with typescript
   // if (initialAnswers.typescript === "yes") {
