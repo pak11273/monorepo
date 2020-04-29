@@ -14,6 +14,7 @@ const bundlerlib = require("./lib/bundler")
 const adminlib = require("./lib/admin")
 const dblib = require("./lib/database")
 const mobilelib = require("./lib/mobile")
+const sharedlib = require("./lib/shared")
 const weblib = require("./lib/web")
 
 clear()
@@ -29,30 +30,40 @@ const start = async function () {
   if (server === "yes") {
     var serverAnswers = await serverlib.run(initialAnswers)
   }
+
   // setting up the client
   if (client === "yes") {
     var clientAnswers = await clientlib.run(initialAnswers)
   }
+
   // setting up the bundler
-  if (clientAnswers.client === "react") {
+  if (clientAnswers) {
     let bundlerAnswers = await bundlerlib.run(initialAnswers)
   }
+
+  // setting up the shared
+  let sharedAnswers = await sharedlib.run(initialAnswers)
+
   // setting up the admin
   if (admin === "yes") {
     let adminAnswers = await adminlib.run(initialAnswers)
   }
+
   // setting up the website
   if (web === "yes") {
     let webAnswers = await weblib.run(initialAnswers)
   }
+
   // setting up the mobile
   if (web === "yes") {
     let mobileAnswers = await mobilelib.run(initialAnswers)
   }
+
   // setting up the db
   if (db === "yes") {
     let dbAnswers = await dblib.run(initialAnswers)
   }
+
   // TODO: setting up all packages with typescript
   // if (initialAnswers.typescript === "yes") {
   //   let typescriptAnswers = await typescript.run(initialAnswers)
