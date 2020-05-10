@@ -35,7 +35,17 @@
 3. Run `repo <your monorepo name> <description>`
 4. Follow the instructions
 5. cd into the root folder after the setup is completed and run `yarn bootstrap`
-6. cd into packages/client and run `yarn start` to test react clients
+6. cd into shared package and run `yarn build`
+7. cd into packages/client and run `yarn start` to test react clients
+
+## Notes
+
+- Frontend packages (eg. web, client, mobile) are installed with styled-components for styling. You can `yarn remove styled-components` inside each package to remove it and use your own css styling.
+
+* Ports for packages:
+  - client: 3000
+  - server: 5000
+  - web: 8080
 
 ## RoadMap
 
@@ -47,7 +57,7 @@
 - Add typeorm option for orms
 - Add apollo option for graphql
 - Add gatsby option for web
-- Add nextJS option for web
+- ~~Add nextJS option for web~~
 - Add rollup option for bundler
 - Add nextJS option for client
 - Add gatsby option for client
@@ -55,6 +65,7 @@
 - Add create-react-native-app option for mobile
 - Add basic user authentication for express
 - Add basic user authentication for graphql
+- Add github-actions option for ci
 - Add circleci option for ci
 - Add travisci option for ci
 - Add knex option for orms
