@@ -15,6 +15,7 @@ const adminlib = require("./lib/admin")
 const dblib = require("./lib/database")
 const mobilelib = require("./lib/mobile")
 const sharedlib = require("./lib/shared")
+// const typescriptlib = require("./lib/typescript")
 const weblib = require("./lib/web")
 
 clear()
@@ -63,11 +64,6 @@ const start = async function () {
   if (db === "yes") {
     let dbAnswers = await dblib.run(initialAnswers)
   }
-
-  // TODO: setting up all packages with typescript
-  // if (initialAnswers.typescript === "yes") {
-  //   let typescriptAnswers = await typescript.run(initialAnswers)
-  // }
 
   // version control
   const github = require("./lib/github/github")
