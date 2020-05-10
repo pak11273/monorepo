@@ -134,7 +134,7 @@ module.exports = (options) => ({
   performance: options.performance || {},
   devServer: {
     contentBase: path.join(__dirname, "public/"),
-    port: 8080,
+    port: 3000,
     publicPath: "http://localhost:8080/dist/",
     // Silence WebpackDevServer's own logs since they're generally not useful.
     // It will still show compile warnings and errors with this setting.
