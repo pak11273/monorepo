@@ -43,9 +43,9 @@
 - Frontend packages (eg. web, client, mobile) are installed with styled-components for styling. You can `yarn remove styled-components` inside each package to remove it and use your own css styling.
 
 * Ports for packages:
+  - web: 8080
   - client: 3000
   - server: 5000
-  - web: 8080
 
 ## RoadMap
 
